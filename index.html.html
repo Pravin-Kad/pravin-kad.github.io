@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pravin Kad — SEO Expert & Digital Marketing Strategist</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8c96a;
+    --gold-dim: #8a6f2e;
+    --dark: #080808;
+    --dark2: #111111;
+    --dark3: #1a1a1a;
+    --card: #141414;
+    --border: rgba(201,168,76,0.18);
+    --text: #e8e4dc;
+    --muted: #7a7570;
+    --white: #f5f2ec;
+    --accent: #d4883a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom cursor */
+  .cursor {
+    position: fixed; width: 10px; height: 10px;
+    background: var(--gold); border-radius: 50%;
+    pointer-events: none; z-index: 9999;
+    transition: transform 0.15s ease, opacity 0.2s;
+    transform: translate(-50%, -50%);
+  }
+  .cursor-ring {
+    position: fixed; width: 36px; height: 36px;
+    border: 1px solid var(--gold-dim); border-radius: 50%;
+    pointer-events: none; z-index: 9998;
+    transition: transform 0.4s ease, width 0.3s, height 0.3s;
+    transform: translate(-50%, -50%);
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 4rem;
+    background: rgba(8,8,8,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 600;
+    color: var(--gold); letter-spacing: 0.04em;
+    cursor: pointer;
+  }
+  .nav-links { display: flex; gap: 2.4rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted); text-decoration: none;
+    transition: color 0.25s;
+    cursor: pointer;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+  /* PAGES */
+  .page {
+    display: none; min-height: 100vh;
+    animation: fadeIn 0.6s ease;
+  }
+  .page.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* === PAGE 1: HOME === */
+  #home {
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 100vh;
+  }
+  .home-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 70% 40%, rgba(201,168,76,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 50% at 20% 80%, rgba(212,136,58,0.05) 0%, transparent 60%),
+      var(--dark);
+  }
+  .home-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .home-content {
+    position: relative; z-index: 2;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: center;
+    max-width: 1200px; width: 100%; padding: 0 4rem;
+    padding-top: 5rem;
+  }
+  .home-text {}
+  .home-tag {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.2em;
+    color: var(--gold); text-transform: uppercase;
+    border: 1px solid var(--border);
+    padding: 0.4rem 1rem; border-radius: 2px;
+    margin-bottom: 1.8rem;
+    animation: fadeIn 0.8s ease 0.1s both;
+  }
+  .home-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 6vw, 6rem);
+    font-weight: 300; line-height: 1.05;
+    color: var(--white); margin-bottom: 0.4rem;
+    animation: fadeIn 0.8s ease 0.2s both;
+  }
+  .home-name span { color: var(--gold); font-style: italic; }
+  .home-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.82rem; letter-spacing: 0.1em;
+    color: var(--muted); margin-bottom: 2rem;
+    animation: fadeIn 0.8s ease 0.3s both;
+  }
+  .home-desc {
+    font-size: 1rem; line-height: 1.75;
+    color: var(--muted); max-width: 480px;
+    margin-bottom: 2.5rem;
+    animation: fadeIn 0.8s ease 0.4s both;
+  }
+  .btn-row { display: flex; gap: 1rem; animation: fadeIn 0.8s ease 0.5s both; }
+  .btn-primary {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 0.85rem 2rem; background: var(--gold);
+    color: var(--dark); border: none; cursor: pointer;
+    transition: background 0.25s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-outline {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 0.85rem 2rem; background: transparent;
+    color: var(--gold); border: 1px solid var(--border); cursor: pointer;
+    transition: border-color 0.25s, transform 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); transform: translateY(-2px); }
+
+  .home-image-wrap {
+    position: relative; animation: fadeIn 0.8s ease 0.3s both;
+  }
+  .home-image-wrap::before {
+    content: ''; position: absolute;
+    top: -20px; left: -20px; right: 20px; bottom: 20px;
+    border: 1px solid var(--border); z-index: 0;
+  }
+  .home-image-wrap img {
+    width: 100%; height: 520px; object-fit: cover;
+    display: block; position: relative; z-index: 1;
+    filter: grayscale(20%) contrast(1.05);
+  }
+  .home-stats {
+    display: flex; gap: 2rem; margin-top: 2.5rem;
+    animation: fadeIn 0.8s ease 0.6s both;
+  }
+  .stat { border-left: 2px solid var(--gold); padding-left: 1rem; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 600; color: var(--gold);
+  }
+  .stat-label { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.08em; }
+
+  /* SCROLL INDICATOR */
+  .scroll-ind {
+    position: absolute; bottom: 2rem; left: 50%;
+    transform: translateX(-50%); z-index: 2;
+    display: flex; flex-direction: column; align-items: center;
+    gap: 0.4rem; opacity: 0.5;
+  }
+  .scroll-line {
+    width: 1px; height: 50px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  .scroll-text {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem; letter-spacing: 0.2em; color: var(--gold);
+    writing-mode: vertical-rl;
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.5; } 50% { opacity: 1; }
+  }
+
+  /* === PAGE 2: ABOUT === */
+  #about { padding: 7rem 4rem 5rem; max-width: 1200px; margin: 0 auto; }
+  .section-header { margin-bottom: 4rem; }
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.22em;
+    color: var(--gold); text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 300; color: var(--white);
+    line-height: 1.1;
+  }
+  .section-title em { color: var(--gold); font-style: italic; }
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 5rem; align-items: start; }
+  .about-img-wrap { position: relative; }
+  .about-img-wrap::after {
+    content: ''; position: absolute;
+    top: 20px; left: 20px; right: -20px; bottom: -20px;
+    border: 1px solid var(--border); z-index: 0;
+  }
+  .about-img-wrap img {
+    width: 100%; height: 500px; object-fit: cover;
+    display: block; position: relative; z-index: 1;
+    filter: grayscale(15%);
+  }
+  .about-badge {
+    position: absolute; bottom: 30px; right: -30px; z-index: 2;
+    background: var(--gold); padding: 1.2rem 1.5rem;
+    text-align: center;
+  }
+  .about-badge-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; font-weight: 700; color: var(--dark);
+    display: block; line-height: 1;
+  }
+  .about-badge-label {
+    font-size: 0.65rem; letter-spacing: 0.1em; color: rgba(8,8,8,0.7);
+    text-transform: uppercase;
+  }
+
+  .about-text p {
+    font-size: 1rem; line-height: 1.85; color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+  .about-text p strong { color: var(--text); font-weight: 500; }
+
+  .about-info-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1rem; margin: 2rem 0;
+  }
+  .info-item { padding: 1.2rem; border: 1px solid var(--border); background: var(--card); }
+  .info-label { font-size: 0.65rem; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.3rem; }
+  .info-value { font-size: 0.9rem; color: var(--text); font-weight: 500; }
+
+  .domains { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+  .domain-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.1em;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid var(--border); color: var(--muted);
+    text-transform: uppercase;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .domain-tag:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* === PAGE 3: EXPERIENCE === */
+  #experience { padding: 7rem 4rem 5rem; max-width: 1200px; margin: 0 auto; }
+  .exp-hero-img {
+    width: 100%; height: 280px; object-fit: cover;
+    margin-bottom: 4rem;
+    filter: grayscale(30%) brightness(0.6);
+    border: 1px solid var(--border);
+  }
+
+  .timeline { position: relative; }
+  .timeline::before {
+    content: ''; position: absolute;
+    left: 0; top: 0; bottom: 0; width: 1px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  .timeline-item {
+    position: relative; padding-left: 3rem;
+    margin-bottom: 3.5rem;
+  }
+  .timeline-dot {
+    position: absolute; left: -5px; top: 0.4rem;
+    width: 11px; height: 11px;
+    background: var(--gold); border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.2);
+  }
+  .timeline-period {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.15em; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 0.5rem;
+  }
+  .timeline-role {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 600; color: var(--white);
+    margin-bottom: 0.2rem;
+  }
+  .timeline-company {
+    font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .timeline-company span { color: var(--accent); }
+  .timeline-bullets { list-style: none; }
+  .timeline-bullets li {
+    font-size: 0.92rem; line-height: 1.7; color: var(--muted);
+    padding: 0.5rem 0; padding-left: 1.2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    position: relative;
+  }
+  .timeline-bullets li::before {
+    content: '→'; position: absolute; left: 0;
+    color: var(--gold); font-size: 0.8rem;
+  }
+
+  /* === PAGE 4: SKILLS === */
+  #skills { padding: 7rem 4rem 5rem; max-width: 1200px; margin: 0 auto; }
+  .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+
+  .skills-img {
+    width: 100%; height: 420px; object-fit: cover;
+    border: 1px solid var(--border);
+    filter: grayscale(25%) brightness(0.7);
+  }
+
+  .skill-group { margin-bottom: 2.5rem; }
+  .skill-group-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.2em; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 1.2rem;
+    padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);
+  }
+  .skill-bar-row { margin-bottom: 1rem; }
+  .skill-bar-label {
+    display: flex; justify-content: space-between;
+    font-size: 0.82rem; color: var(--text);
+    margin-bottom: 0.4rem;
+  }
+  .skill-bar-label span { color: var(--gold); font-size: 0.72rem; }
+  .skill-bar-bg {
+    height: 3px; background: var(--dark3);
+    position: relative; overflow: hidden;
+  }
+  .skill-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold-dim), var(--gold));
+    width: 0; transition: width 1.5s ease;
+  }
+
+  .tools-grid { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+  .tool-chip {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem; letter-spacing: 0.1em;
+    padding: 0.45rem 1rem;
+    background: var(--card); border: 1px solid var(--border);
+    color: var(--muted); text-transform: uppercase;
+    transition: all 0.25s;
+  }
+  .tool-chip:hover {
+    background: rgba(201,168,76,0.08);
+    border-color: var(--gold); color: var(--gold);
+  }
+
+  .verticals { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+  .vertical-card {
+    padding: 1.5rem; background: var(--card);
+    border: 1px solid var(--border);
+    transition: border-color 0.25s;
+  }
+  .vertical-card:hover { border-color: var(--gold); }
+  .vertical-icon { font-size: 1.8rem; margin-bottom: 0.7rem; }
+  .vertical-name { font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 0.3rem; }
+  .vertical-desc { font-size: 0.75rem; color: var(--muted); line-height: 1.5; }
+
+  /* === PAGE 5: EDUCATION === */
+  #education { padding: 7rem 4rem 5rem; max-width: 1200px; margin: 0 auto; }
+
+  .edu-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 4rem; }
+  .edu-hero-img { width: 100%; height: 320px; object-fit: cover; border: 1px solid var(--border); filter: grayscale(20%) brightness(0.65); }
+  .edu-intro { display: flex; flex-direction: column; justify-content: center; gap: 1.5rem; }
+  .edu-intro p { font-size: 1rem; line-height: 1.8; color: var(--muted); }
+  .edu-intro strong { color: var(--text); }
+
+  .edu-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .edu-card {
+    background: var(--card); border: 1px solid var(--border);
+    padding: 2rem; position: relative; overflow: hidden;
+    transition: border-color 0.25s;
+  }
+  .edu-card:hover { border-color: var(--gold); }
+  .edu-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+  .edu-card-year {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.15em;
+    color: var(--gold); text-transform: uppercase; margin-bottom: 1rem;
+  }
+  .edu-card-degree {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 600; color: var(--white);
+    margin-bottom: 0.5rem; line-height: 1.2;
+  }
+  .edu-card-school { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.4rem; }
+  .edu-card-field { font-size: 0.78rem; color: var(--accent); }
+  .edu-card-num {
+    position: absolute; right: 1.5rem; bottom: 1.2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem; font-weight: 700;
+    color: rgba(201,168,76,0.05); line-height: 1;
+  }
+
+  .cert-section { margin-top: 4rem; }
+  .cert-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; color: var(--white); margin-bottom: 1.5rem;
+  }
+  .cert-list { display: flex; flex-direction: column; gap: 0.8rem; }
+  .cert-item {
+    display: flex; align-items: center; gap: 1.2rem;
+    padding: 1rem 1.5rem; background: var(--card);
+    border: 1px solid var(--border);
+  }
+  .cert-dot { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
+  .cert-name { font-size: 0.9rem; color: var(--text); }
+  .cert-org { font-size: 0.75rem; color: var(--muted); margin-left: auto; }
+
+  /* === PAGE 6: CONTACT === */
+  #contact { padding: 7rem 4rem 5rem; max-width: 1200px; margin: 0 auto; min-height: 100vh; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .contact-img {
+    width: 100%; height: 460px; object-fit: cover;
+    border: 1px solid var(--border);
+    filter: grayscale(20%) brightness(0.6);
+  }
+  .contact-info { display: flex; flex-direction: column; gap: 2rem; }
+  .contact-info p { font-size: 1rem; line-height: 1.8; color: var(--muted); }
+
+  .contact-methods { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-method {
+    display: flex; align-items: center; gap: 1.2rem;
+    padding: 1.2rem 1.5rem; background: var(--card);
+    border: 1px solid var(--border);
+    transition: border-color 0.25s;
+    text-decoration: none;
+  }
+  .contact-method:hover { border-color: var(--gold); }
+  .contact-method-icon {
+    width: 40px; height: 40px; background: rgba(201,168,76,0.1);
+    border: 1px solid var(--border); display: flex;
+    align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
+  }
+  .contact-method-label { font-size: 0.65rem; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.2rem; }
+  .contact-method-value { font-size: 0.9rem; color: var(--text); }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-label { font-family: 'Space Mono', monospace; font-size: 0.62rem; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; }
+  .form-input, .form-textarea {
+    background: var(--card); border: 1px solid var(--border);
+    color: var(--text); padding: 0.85rem 1rem;
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+    outline: none; transition: border-color 0.25s; resize: none;
+  }
+  .form-input:focus, .form-textarea:focus { border-color: var(--gold); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-textarea { height: 120px; }
+  .form-submit {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 1rem 2rem; background: var(--gold);
+    color: var(--dark); border: none; cursor: pointer;
+    transition: background 0.25s; width: fit-content;
+    margin-top: 0.5rem;
+  }
+  .form-submit:hover { background: var(--gold-light); }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem 4rem;
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--dark2);
+  }
+  .footer-copy { font-size: 0.72rem; color: var(--muted); }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--gold); }
+  .social-links { display: flex; gap: 1rem; }
+  .social-link {
+    font-size: 0.7rem; color: var(--muted); text-decoration: none;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .social-link:hover { color: var(--gold); }
+
+  /* RESPONSIVE */
+  @media(max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { gap: 1.2rem; }
+    .home-content, .about-grid, .skills-layout, .edu-hero-grid,
+    .contact-grid, .edu-cards, .verticals { grid-template-columns: 1fr; gap: 2.5rem; }
+    #about, #experience, #skills, #education, #contact { padding: 6rem 2rem 4rem; }
+    .home-content { padding: 0 2rem; padding-top: 5rem; }
+    .home-name { font-size: 3rem; }
+    .home-image-wrap img, .skills-img, .contact-img, .edu-hero-img { height: 280px; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .form-row { grid-template-columns: 1fr; }
+    .about-badge { right: 0; bottom: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo" onclick="showPage('home')">PK</div>
+  <ul class="nav-links">
+    <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+    <li><a onclick="showPage('about')" id="nav-about">About</a></li>
+    <li><a onclick="showPage('experience')" id="nav-experience">Experience</a></li>
+    <li><a onclick="showPage('skills')" id="nav-skills">Skills</a></li>
+    <li><a onclick="showPage('education')" id="nav-education">Education</a></li>
+    <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ========== PAGE 1: HOME ========== -->
+<div id="home" class="page active">
+  <div class="home-bg"></div>
+  <div class="home-grid"></div>
+  <div class="home-content">
+    <div class="home-text">
+      <div class="home-tag">SEO Expert &amp; Digital Strategist</div>
+      <h1 class="home-name">Pravin<br><span>Kad</span></h1>
+      <div class="home-title">// Web3 · Blockchain · AI · Gaming · Crypto</div>
+      <p class="home-desc">
+        Results-driven digital marketing professional specialising in SEO strategy, 
+        organic growth, and multi-channel brand visibility — with 7+ years of expertise 
+        across cutting-edge tech verticals.
+      </p>
+      <div class="btn-row">
+        <button class="btn-primary" onclick="showPage('experience')">View My Work</button>
+        <button class="btn-outline" onclick="showPage('contact')">Get In Touch</button>
+      </div>
+      <div class="home-stats">
+        <div class="stat">
+          <div class="stat-num">7+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">15+</div>
+          <div class="stat-label">SEO Tools Mastered</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">4</div>
+          <div class="stat-label">Industry Verticals</div>
+        </div>
+      </div>
+    </div>
+    <div class="home-image-wrap">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80" alt="Digital Marketing" />
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <div class="scroll-line"></div>
+    <div class="scroll-text">Scroll</div>
+  </div>
+</div>
+
+<!-- ========== PAGE 2: ABOUT ========== -->
+<div id="about" class="page">
+  <div style="max-width:1200px;margin:0 auto;padding:7rem 4rem 5rem;">
+    <div class="section-header">
+      <div class="section-label">// 01 — About Me</div>
+      <h2 class="section-title">The Person<br>Behind the <em>Strategy</em></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=700&q=80" alt="About Pravin Kad" />
+        <div class="about-badge">
+          <span class="about-badge-num">7+</span>
+          <span class="about-badge-label">Years in SEO</span>
+        </div>
+      </div>
+      <div class="about-text">
+        <p>
+          I'm <strong>Pravin Kad</strong> — a Senior SEO Specialist and Digital Marketing strategist 
+          based in Pune, Maharashtra, India. Currently driving organic growth at 
+          <strong>VAP Group</strong> for globally recognised properties including the 
+          Global Blockchain Show, Global AI Show, and Global Games Show.
+        </p>
+        <p>
+          My background bridges engineering and marketing — I hold a degree in 
+          Electronics & Telecommunication Engineering, which informs my deeply 
+          <strong>technical, analytical approach</strong> to SEO. I don't just optimise for rankings; 
+          I build data-driven ecosystems that convert.
+        </p>
+        <p>
+          From spearheading global digital roadmaps to leading high-performance teams, 
+          my career has been defined by a passion for <strong>measurable outcomes, 
+          ethical SEO practices</strong>, and staying ahead of algorithm changes across 
+          rapidly evolving tech verticals.
+        </p>
+        <div class="about-info-grid">
+          <div class="info-item">
+            <div class="info-label">Location</div>
+            <div class="info-value">Pune, Maharashtra, India</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Current Role</div>
+            <div class="info-value">Sr. SEO Specialist</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Phone</div>
+            <div class="info-value">+91 9922726846</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Email</div>
+            <div class="info-value">pravinkad94@gmail.com</div>
+          </div>
+        </div>
+        <div class="section-label" style="margin-top:2rem;margin-bottom:0.8rem;">Industry Domains</div>
+        <div class="domains">
+          <span class="domain-tag">Web3</span>
+          <span class="domain-tag">Blockchain</span>
+          <span class="domain-tag">Crypto</span>
+          <span class="domain-tag">Artificial Intelligence</span>
+          <span class="domain-tag">Gaming</span>
+          <span class="domain-tag">Market Research</span>
+          <span class="domain-tag">B2B</span>
+          <span class="domain-tag">Real Estate</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== PAGE 3: EXPERIENCE ========== -->
+<div id="experience" class="page">
+  <div style="max-width:1200px;margin:0 auto;padding:7rem 4rem 5rem;">
+    <div class="section-header">
+      <div class="section-label">// 02 — Experience</div>
+      <h2 class="section-title">A Decade of<br><em>Digital Growth</em></h2>
+    </div>
+    <img class="exp-hero-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Experience banner" />
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-period">Feb 2024 — Present · Pune, India</div>
+        <div class="timeline-role">Senior SEO Specialist</div>
+        <div class="timeline-company">VAP Group &nbsp;·&nbsp; <span>Global Blockchain Show | Global AI Show | Global Games Show</span></div>
+        <ul class="timeline-bullets">
+          <li>Architected and executed end-to-end data-driven SEO strategies across three globally recognised event brands, achieving consistent uplift in organic rankings, search visibility, and conversion rates within highly competitive Web3, AI, and Gaming verticals.</li>
+          <li>Developed and managed a robust white-hat link-building and digital PR outreach programme, growing domain authority and securing high-quality backlinks from industry-authoritative publications worldwide.</li>
+          <li>Delivered actionable performance reporting via GA4, GSC, SEMrush, and Ahrefs, driving technical SEO improvements — including schema markup, crawlability fixes, and Core Web Vitals enhancements — that measurably improved site health and indexation.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-period">Oct 2022 — Feb 2024 · Pune, India</div>
+        <div class="timeline-role">Digital Marketing Team Lead</div>
+        <div class="timeline-company">Kings Research</div>
+        <ul class="timeline-bullets">
+          <li>Spearheaded the development of a comprehensive global digital marketing roadmap, scaling organic search presence across multiple target markets and driving double-digit growth in qualified inbound traffic within the B2B market research sector.</li>
+          <li>Built, mentored, and managed a cross-functional digital marketing team of SEO, content, and social media specialists — fostering a high-performance culture aligned to clear KPIs and business growth objectives.</li>
+          <li>Optimised budget allocation and ROI tracking across SEO, paid, and content channels — consistently meeting performance benchmarks and reducing customer acquisition costs through streamlined, data-led campaign execution.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-period">May 2019 — Sep 2022 · Pune, India</div>
+        <div class="timeline-role">Digital Marketing Team Lead</div>
+        <div class="timeline-company">Absolute Reports®</div>
+        <ul class="timeline-bullets">
+          <li>Oversaw end-to-end SEO and content marketing strategy for a global market research firm, delivering sustained organic ranking improvements across high-volume, commercially competitive keywords in niche research categories.</li>
+          <li>Implemented white-hat SEO best practices — including technical audits, schema markup, site architecture refinements, and internal linking strategies — that significantly improved crawl efficiency and search visibility.</li>
+          <li>Led cross-functional collaboration between design, development, and marketing teams to integrate SEO requirements into website infrastructure from the ground up, reducing technical debt and enabling scalable digital growth.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-period">May 2018 — Apr 2019 · Pune, India</div>
+        <div class="timeline-role">Senior SEO Executive</div>
+        <div class="timeline-company">Orbis Research</div>
+        <ul class="timeline-bullets">
+          <li>Conducted comprehensive keyword research and competitive analysis to identify high-potential organic search opportunities, supporting sustained growth in search engine rankings for a B2B research content platform.</li>
+          <li>Executed on-page optimisation initiatives — including title tags, meta descriptions, URL structure, and header hierarchy — resulting in measurable improvements to click-through rates and search engine visibility.</li>
+          <li>Managed off-page SEO activities including outreach, link acquisition, and content promotion, contributing to a stronger domain authority profile and broader digital footprint across industry verticals.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-period">Apr 2017 — Apr 2018 · Pune, India</div>
+        <div class="timeline-role">Web Marketing Analyst / Sr. SEO Executive</div>
+        <div class="timeline-company">The Insight Partners &nbsp;·&nbsp; <span>Key Market Insights</span></div>
+        <ul class="timeline-bullets">
+          <li>Supported SEO strategy development and execution for market research publications, performing content audits, keyword mapping, and on-page improvements across large-scale content repositories.</li>
+          <li>Monitored and reported on website performance using Google Analytics and Google Search Console, identifying traffic patterns and growth opportunities to inform campaign adjustments.</li>
+          <li>Collaborated with editorial and development teams to implement SEO recommendations, establishing foundational best practices that underpinned long-term organic search growth.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ========== PAGE 4: SKILLS ========== -->
+<div id="skills" class="page">
+  <div style="max-width:1200px;margin:0 auto;padding:7rem 4rem 5rem;">
+    <div class="section-header">
+      <div class="section-label">// 03 — Skills & Expertise</div>
+      <h2 class="section-title">Tools of the<br><em>Modern Strategist</em></h2>
+    </div>
+    <div class="skills-layout">
+      <div>
+        <div class="skill-group">
+          <div class="skill-group-title">Core SEO Competencies</div>
+          <div class="skill-bar-row">
+            <div class="skill-bar-label">On-Page SEO &amp; Technical SEO <span>95%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="95"></div></div>
+          </div>
+          <div class="skill-bar-row">
+            <div class="skill-bar-label">Keyword Research &amp; Competitive Analysis <span>92%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="92"></div></div>
+          </div>
+          <div class="skill-bar-row">
+            <div class="skill-bar-label">Link Building &amp; Outreach <span>90%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90"></div></div>
+          </div>
+          <div class="skill-bar-row">
+            <div class="skill-bar-label">SEO Auditing &amp; Reporting <span>93%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="93"></div></div>
+          </div>
+          <div class="skill-bar-row">
+            <div class="skill-bar-label">Content Strategy &amp; Marketing <span>85%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">Leadership &amp; Strategy</div>
+          <div class="skill-bar-row">
+            <div class="skill-bar-label">Team Building &amp; Leadership <span>88%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88"></div></div>
+          </div>
+          <div class="skill-bar-row">
+            <div class="skill-bar-label">Digital Marketing Strategy <span>90%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90"></div></div>
+          </div>
+          <div class="skill-bar-row">
+            <div class="skill-bar-label">Analytics &amp; KPI Tracking <span>87%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="87"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">SEO Tools &amp; Platforms</div>
+          <div class="tools-grid">
+            <span class="tool-chip">Google Analytics 4</span>
+            <span class="tool-chip">Search Console</span>
+            <span class="tool-chip">SEMrush</span>
+            <span class="tool-chip">Ahrefs</span>
+            <span class="tool-chip">SimilarWeb</span>
+            <span class="tool-chip">Screaming Frog</span>
+            <span class="tool-chip">Moz</span>
+            <span class="tool-chip">Google Ads</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <img class="skills-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&q=80" alt="Analytics and Skills" />
+
+        <div style="margin-top:2rem;">
+          <div class="skill-group-title">Industry Verticals</div>
+          <div class="verticals">
+            <div class="vertical-card">
+              <div class="vertical-icon">⛓️</div>
+              <div class="vertical-name">Web3 & Blockchain</div>
+              <div class="vertical-desc">SEO strategy for decentralised platforms, crypto projects &amp; blockchain events</div>
+            </div>
+            <div class="vertical-card">
+              <div class="vertical-icon">🤖</div>
+              <div class="vertical-name">Artificial Intelligence</div>
+              <div class="vertical-desc">Organic visibility for AI-driven products, conferences &amp; SaaS platforms</div>
+            </div>
+            <div class="vertical-card">
+              <div class="vertical-icon">🎮</div>
+              <div class="vertical-name">Gaming</div>
+              <div class="vertical-desc">Content &amp; SEO strategies for gaming events, esports &amp; interactive media</div>
+            </div>
+            <div class="vertical-card">
+              <div class="vertical-icon">📊</div>
+              <div class="vertical-name">Market Research</div>
+              <div class="vertical-desc">B2B SEO for research firms, industry reports &amp; data-driven content hubs</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== PAGE 5: EDUCATION ========== -->
+<div id="education" class="page">
+  <div style="max-width:1200px;margin:0 auto;padding:7rem 4rem 5rem;">
+    <div class="section-header">
+      <div class="section-label">// 04 — Education</div>
+      <h2 class="section-title">Academic<br><em>Foundation</em></h2>
+    </div>
+    <div class="edu-hero-grid">
+      <img class="edu-hero-img" src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80" alt="Education" />
+      <div class="edu-intro">
+        <p>
+          My engineering background in <strong>Electronics & Telecommunication</strong> gave me a 
+          rigorous analytical framework — one I've applied ever since to build systematic, 
+          data-led SEO strategies that go far beyond surface-level optimisation.
+        </p>
+        <p>
+          The intersection of <strong>technical thinking and creative marketing</strong> is where I thrive. 
+          Understanding how systems work — from circuit design to crawl budgets — means I approach 
+          every SEO challenge with both precision and ingenuity.
+        </p>
+        <div class="domains" style="margin-top:0.5rem;">
+          <span class="domain-tag">Engineering</span>
+          <span class="domain-tag">Electronics</span>
+          <span class="domain-tag">Telecom</span>
+          <span class="domain-tag">Analytics</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="edu-cards">
+      <div class="edu-card">
+        <div class="edu-card-year">2012 — 2016</div>
+        <div class="edu-card-degree">Bachelor of Engineering</div>
+        <div class="edu-card-school">Anuradha College of Engineering, Chikhali</div>
+        <div class="edu-card-field">Electronics &amp; Telecommunication Engineering</div>
+        <div class="edu-card-num">B.E.</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-card-year">Mar 2012 — Jun 2016</div>
+        <div class="edu-card-degree">Bachelor of Engineering</div>
+        <div class="edu-card-school">Sant Gadge Baba Amravati University, Amravati</div>
+        <div class="edu-card-field">Electrical, Electronics &amp; Communications Engineering</div>
+        <div class="edu-card-num">B.E.</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-card-year">2010 — 2012</div>
+        <div class="edu-card-degree">HSC — Science Stream</div>
+        <div class="edu-card-school">Shri Shivaji Jr. College, Buldana</div>
+        <div class="edu-card-field">Higher Secondary Certificate · Science</div>
+        <div class="edu-card-num">12th</div>
+      </div>
+      <div class="edu-card" style="border-style:dashed; opacity:0.6;">
+        <div class="edu-card-year">Continuous Learning</div>
+        <div class="edu-card-degree">Professional Development</div>
+        <div class="edu-card-school">SEO, Analytics &amp; Digital Marketing</div>
+        <div class="edu-card-field">GA4 · SEMrush Certification · Ahrefs Academy</div>
+        <div class="edu-card-num">∞</div>
+      </div>
+    </div>
+
+    <div class="cert-section">
+      <div class="cert-title">Key Competencies &amp; Focus Areas</div>
+      <div class="cert-list">
+        <div class="cert-item">
+          <div class="cert-dot"></div>
+          <div class="cert-name">Advanced Technical SEO — Site Architecture, Core Web Vitals, Schema Markup</div>
+          <div class="cert-org">7+ Years Applied</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-dot"></div>
+          <div class="cert-name">Google Analytics 4 (GA4) &amp; Google Search Console</div>
+          <div class="cert-org">Expert Level</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-dot"></div>
+          <div class="cert-name">SEMrush &amp; Ahrefs — Keyword Research, Backlink Analysis, Competitive Intelligence</div>
+          <div class="cert-org">Expert Level</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-dot"></div>
+          <div class="cert-name">Web3, Blockchain &amp; AI Sector Digital Marketing</div>
+          <div class="cert-org">VAP Group · 2024–Present</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== PAGE 6: CONTACT ========== -->
+<div id="contact" class="page">
+  <div style="max-width:1200px;margin:0 auto;padding:7rem 4rem 5rem;">
+    <div class="section-header">
+      <div class="section-label">// 05 — Get In Touch</div>
+      <h2 class="section-title">Let's Build<br><em>Something Great</em></h2>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <img class="contact-img" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=700&q=80" alt="Contact" />
+      </div>
+      <div class="contact-info">
+        <p>
+          Whether you're looking to scale organic growth, explore a collaboration, or simply have a conversation 
+          about SEO strategy in the Web3 and AI space — I'd love to hear from you.
+        </p>
+
+        <div class="contact-methods">
+          <a class="contact-method" href="tel:+919922726846">
+            <div class="contact-method-icon">📞</div>
+            <div>
+              <div class="contact-method-label">Phone</div>
+              <div class="contact-method-value">+91 9922726846</div>
+            </div>
+          </a>
+          <a class="contact-method" href="mailto:pravinkad94@gmail.com">
+            <div class="contact-method-icon">✉️</div>
+            <div>
+              <div class="contact-method-label">Email</div>
+              <div class="contact-method-value">pravinkad94@gmail.com</div>
+            </div>
+          </a>
+          <a class="contact-method" href="https://www.linkedin.com/in/pravin-kad" target="_blank">
+            <div class="contact-method-icon">💼</div>
+            <div>
+              <div class="contact-method-label">LinkedIn</div>
+              <div class="contact-method-value">linkedin.com/in/pravin-kad</div>
+            </div>
+          </a>
+          <a class="contact-method" href="#">
+            <div class="contact-method-icon">📍</div>
+            <div>
+              <div class="contact-method-label">Location</div>
+              <div class="contact-method-value">Pune, Maharashtra, India</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Your Name</label>
+              <input type="text" class="form-input" placeholder="John Doe" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input type="email" class="form-input" placeholder="john@company.com" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Subject</label>
+            <input type="text" class="form-input" placeholder="SEO Consultation / Partnership / Other" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea class="form-textarea" placeholder="Tell me about your project or enquiry..."></textarea>
+          </div>
+          <button class="form-submit" onclick="handleSubmit()">Send Message →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Pravin Kad</div>
+  <div class="footer-copy">© 2025 Pravin Kad · SEO Expert & Digital Marketing Strategist</div>
+  <div class="social-links">
+    <a class="social-link" href="https://www.linkedin.com/in/pravin-kad" target="_blank">LinkedIn</a>
+    <a class="social-link" href="mailto:pravinkad94@gmail.com">Email</a>
+  </div>
+</footer>
+
+<script>
+  // Cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  function animateCursor() {
+    cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+    rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+  document.querySelectorAll('a,button,.nav-logo,.domain-tag,.tool-chip,.vertical-card,.edu-card,.contact-method').forEach(el => {
+    el.addEventListener('mouseenter', () => { cursor.style.transform = 'translate(-50%,-50%) scale(2.5)'; ring.style.width = '60px'; ring.style.height = '60px'; });
+    el.addEventListener('mouseleave', () => { cursor.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.width = '36px'; ring.style.height = '36px'; });
+  });
+
+  // Page routing
+  const pages = ['home','about','experience','skills','education','contact'];
+  function showPage(id) {
+    pages.forEach(p => {
+      document.getElementById(p).classList.remove('active');
+      const navEl = document.getElementById('nav-' + p);
+      if (navEl) navEl.classList.remove('active');
+    });
+    document.getElementById(id).classList.add('active');
+    const navEl = document.getElementById('nav-' + id);
+    if (navEl) navEl.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (id === 'skills') animateBars();
+  }
+
+  // Skill bars
+  function animateBars() {
+    setTimeout(() => {
+      document.querySelectorAll('.skill-bar-fill').forEach(bar => {
+        bar.style.width = bar.dataset.width + '%';
+      });
+    }, 200);
+  }
+
+  // Contact submit
+  function handleSubmit() {
+    const btn = document.querySelector('.form-submit');
+    btn.textContent = '✓ Message Sent!';
+    btn.style.background = '#4a7c59';
+    setTimeout(() => {
+      btn.textContent = 'Send Message →';
+      btn.style.background = '';
+    }, 3000);
+  }
+</script>
+</body>
+</html>
